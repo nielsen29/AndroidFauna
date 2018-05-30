@@ -62,6 +62,9 @@ public class CapturarActivity extends AppCompatActivity {
     private EditText txt_pais;
 
 
+    //h
+
+
 
 
 
