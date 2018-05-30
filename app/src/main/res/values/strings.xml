@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">AndroidFauna</string>
+
+    <string-array name="Array_Dominios">
+        <item>Eukarya</item>
+        <item>Archaeabacteria</item>
+        <item>Bacteria</item>
+    </string-array>
+
+    <string-array name="Array_Reino">
+        <item>Animalia</item>
+        <item>Bacteria</item>
+        <item>Chromista</item>
+        <item>Fungi</item>
+        <item>Plantae</item>
+        <item>Protozoa</item>
+        <item>Viruses</item>
+    </string-array>
+
+    <string-array name="Array_division">
+        <item>Annelida</item>
+        <item>Arthropoda</item>
+        <item>Chordata</item>
+        <item>Cnidaria</item>
+        <item>Echinodermata</item>
+        <item>Ectoprocta</item>
+        <item>Mollusca</item>
+        <item>Nemotoda</item>
+        <item>Platyhelminthes</item>
+        <item>Rotifera</item>
+    </string-array>
+
+    <string-array name="Array_Clase">
+        <item>Clitellata</item>
+    </string-array>
+
+    <string-array name="Array_Orden">
+        <item>Arhynchobdellida</item>
+        <item>Haplotaxida</item>
+    </string-array>
+
+    <string-array name="Array_Familia">
+        <item>Hirudinidae</item>
+        <item>Lumbricus</item>
+    </string-array>
+
+    <string-array name="Array_Genero">
+        <item>Hirudo</item>
+        <item>Lumbricus</item>
+    </string-array>
+
+
+    <string-array name="Array_Especie">
+        <item>Sangijuela</item>
+        <item>Lombriz</item>
+    </string-array>
+
+</resources>

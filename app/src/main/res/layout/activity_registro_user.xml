@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#17A589"
+    tools:context="yanick.com.proyectofauna.androidfauna.RegistroUserActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        app:srcCompat="@drawable/logoproyecto" />
+
+    <EditText
+        android:id="@+id/txtNomUsu"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/imageView6"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/ic_action_usuario"
+        android:layout_marginTop="13dp"
+        android:background="#11000000"
+        android:ems="10"
+        android:hint="Usuario"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="12dp" />
+
+    <EditText
+        android:id="@+id/txtDisUsu"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignLeft="@+id/txtNomUsu"
+        android:layout_alignStart="@+id/txtNomUsu"
+        android:layout_below="@+id/txtNomUsu"
+        android:drawableLeft="@drawable/ic_action_ubicacion"
+        android:layout_marginTop="14dp"
+        android:background="#11000000"
+        android:ems="10"
+        android:hint="Distrito"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="12dp"
+        />
+
+    <EditText
+        android:id="@+id/txtCorUsu"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:background="#11000000"
+        android:layout_alignEnd="@+id/txtDisUsu"
+        android:layout_alignRight="@+id/txtDisUsu"
+        android:layout_below="@+id/txtDisUsu"
+        android:drawableLeft="@drawable/ic_action_correo"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Correo Electrónico"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="12dp"
+        />
+
+    <EditText
+        android:id="@+id/txtPasUsu"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignLeft="@+id/txtCorUsu"
+        android:layout_alignStart="@+id/txtCorUsu"
+        android:layout_below="@+id/txtCorUsu"
+        android:drawableLeft="@drawable/ic_action_clave"
+        android:layout_marginTop="14dp"
+        android:background="#11000000"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="12dp" />
+
+    <Button
+        android:id="@+id/btnRegistrarUsu"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/txtPasUsu"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/boton_redondo"
+        android:text="Registrar"
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/tviniciarsesion"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/btnRegistrarUsu"
+        android:gravity="center"
+        android:text="Iniciar Sesión."
+        android:textAlignment="center"
+        android:textColor="#fff" />
+
+
+
+</RelativeLayout>
