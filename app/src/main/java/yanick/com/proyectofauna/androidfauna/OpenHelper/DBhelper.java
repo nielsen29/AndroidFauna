@@ -6,11 +6,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
+import yanick.com.proyectofauna.androidfauna.modelo.Clase;
+import yanick.com.proyectofauna.androidfauna.modelo.Division;
+import yanick.com.proyectofauna.androidfauna.modelo.Orden;
 import yanick.com.proyectofauna.androidfauna.modelo.contract.ContractClase;
 
 public class DBhelper extends SQLiteOpenHelper {
 
-    private static  final int v_DATABASE = 10;
+    private static  final int v_DATABASE = 12;
 
     private static final String name_DATABASE = "faunadb";
 
@@ -117,103 +120,63 @@ public class DBhelper extends SQLiteOpenHelper {
 
         //DATOS DIVISION
 
-        ContentValues claseValues = new ContentValues();
-        String id_ = ContractClase.Division.getID();
-        claseValues.put(ContractClase.Division.NOMBRE, "Echinodermata");
-        claseValues.put(ContractClase.Division.ID, id_);
-        sqLiteDatabase.insert(ContractClase.Division.TABLA,null,claseValues);
+        Division division1 = new Division("Echinodermata");
+        sqLiteDatabase.insert(ContractClase.Division.TABLA,null,division1.getContentValue());
 
-        ContentValues claseValues1 = new ContentValues();
-        String id_1 = ContractClase.Division.getID();
-        claseValues1.put(ContractClase.Division.NOMBRE, "Arthropoda");
-        claseValues1.put(ContractClase.Division.ID, id_1);
-        sqLiteDatabase.insert(ContractClase.Division.TABLA,null,claseValues1);
+        Division division2 = new Division("Arthropoda");
+        sqLiteDatabase.insert(ContractClase.Division.TABLA,null,division2.getContentValue());
 
-        ContentValues claseValues2 = new ContentValues();
-        String id_2 = ContractClase.Division.getID();
-        claseValues2.put(ContractClase.Division.NOMBRE, "Rotifera");
-        claseValues2.put(ContractClase.Division.ID, id_2);
-        sqLiteDatabase.insert(ContractClase.Division.TABLA,null,claseValues2);
-
-        ContentValues claseValues22 = new ContentValues();
-        String id_22 = ContractClase.Division.getID();
-        claseValues22.put(ContractClase.Division.NOMBRE, "XXXXXXX");
-        claseValues22.put(ContractClase.Division.ID, id_22);
-        sqLiteDatabase.insert(ContractClase.Division.TABLA,null,claseValues22);
-
-        //DATOS DE CLASE PARA LA PRIMERA DIVISION
-
-        ContentValues claseValues4 = new ContentValues();
-        claseValues4.put(ContractClase.Clase.NOMBRE, "Asteroidea");
-        claseValues4.put(ContractClase.Clase.ID, ContractClase.Clase.getID());
-        claseValues4.put(ContractClase.Clase.ID_DIVISION, id_);
-        sqLiteDatabase.insert(ContractClase.Clase.TABLA,null,claseValues4);
-
-        ContentValues claseValues5 = new ContentValues();
-        claseValues5.put(ContractClase.Clase.NOMBRE, "Echinoidea");
-        claseValues5.put(ContractClase.Clase.ID, ContractClase.Clase.getID());
-        claseValues5.put(ContractClase.Clase.ID_DIVISION, id_);
-        sqLiteDatabase.insert(ContractClase.Clase.TABLA,null,claseValues5);
-
-        ContentValues claseValues6 = new ContentValues();
-        claseValues6.put(ContractClase.Clase.NOMBRE, "Holothuroidea");
-        claseValues6.put(ContractClase.Clase.ID, ContractClase.Clase.getID());
-        claseValues6.put(ContractClase.Clase.ID_DIVISION, id_);
-        sqLiteDatabase.insert(ContractClase.Clase.TABLA,null,claseValues6);
-
-        //DATOS DE CLASE PARA LA SEGUNDA DIVISION
-
-        ContentValues claseValues7 = new ContentValues();
-        claseValues7.put(ContractClase.Clase.NOMBRE, "Arachnida");
-        claseValues7.put(ContractClase.Clase.ID, ContractClase.Clase.getID());
-        claseValues7.put(ContractClase.Clase.ID_DIVISION, id_1);
-        sqLiteDatabase.insert(ContractClase.Clase.TABLA,null,claseValues7);
-
-        ContentValues claseValues8 = new ContentValues();
-        claseValues8.put(ContractClase.Clase.NOMBRE, "Insecta");
-        claseValues8.put(ContractClase.Clase.ID, ContractClase.Clase.getID());
-        claseValues8.put(ContractClase.Clase.ID_DIVISION, id_1);
-        sqLiteDatabase.insert(ContractClase.Clase.TABLA,null,claseValues8);
-
-        ContentValues claseValues9 = new ContentValues();
-        claseValues9.put(ContractClase.Clase.NOMBRE, "Ostracoda");
-        claseValues9.put(ContractClase.Clase.ID, ContractClase.Clase.getID());
-        claseValues9.put(ContractClase.Clase.ID_DIVISION, id_1);
-        sqLiteDatabase.insert(ContractClase.Clase.TABLA,null,claseValues9);
+        Division division3 = new Division("Rotifera");
+        sqLiteDatabase.insert(ContractClase.Division.TABLA,null,division3.getContentValue());
 
 
-        //DATOS DE CLASE PARA LA TERCERA DIVISION
+        //DATOS CLASE ECHINODERMATA
 
-        ContentValues claseValues10 = new ContentValues();
-        String llave = ContractClase.Clase.getID();
-        claseValues10.put(ContractClase.Clase.NOMBRE, "Rotatoria");
-        claseValues10.put(ContractClase.Clase.ID, llave);
-        claseValues10.put(ContractClase.Clase.ID_DIVISION, id_2);
-        sqLiteDatabase.insert(ContractClase.Clase.TABLA,null,claseValues10);
+        Clase clase1 = new Clase("Asteroidea",division1);
+        sqLiteDatabase.insert(ContractClase.Clase.TABLA,null,clase1.getContentValue());
 
-/*
-        ContentValues claseValues4 = new ContentValues();
-        claseValues4.put(ContractClase.Clase.NOMBRE, "Asteroidea");
-        claseValues4.put(ContractClase.Clase.ID, ContractClase.Clase.getID());
-        claseValues4.put(ContractClase.Clase.ID_DIVISION, id_);
-        sqLiteDatabase.insert(ContractClase.Clase.TABLA,null,claseValues4);
-*/
+        Clase clase2 = new Clase("Echinoidea",division1);
+        sqLiteDatabase.insert(ContractClase.Clase.TABLA,null,clase2.getContentValue());
 
+        Clase clase3 = new Clase("Holothuroidea",division1);
+        sqLiteDatabase.insert(ContractClase.Clase.TABLA, null,clase3.getContentValue());
 
+        //DATOS CLASE ARTHROPODA
 
+        Clase clase4 = new Clase("Arachnida",division2);
+        sqLiteDatabase.insert(ContractClase.Clase.TABLA, null,clase4.getContentValue());
 
-        ContentValues claseValues11 = new ContentValues();
-        claseValues11.put(ContractClase.Orden.NOMBRE, "Paxillosida");
-        claseValues11.put(ContractClase.Orden.ID, ContractClase.Orden.getID());
-        claseValues11.put(ContractClase.Orden.ID_CLASE, id_);
-        sqLiteDatabase.insert(ContractClase.Orden.TABLA,null,claseValues11);
+        Clase clase5 = new Clase("Insecta",division2);
+        sqLiteDatabase.insert(ContractClase.Clase.TABLA, null,clase5.getContentValue());
 
+        Clase clase6 = new Clase("Ostracoda",division2);
+        sqLiteDatabase.insert(ContractClase.Clase.TABLA, null,clase6.getContentValue());
 
-        ContentValues claseValues12 = new ContentValues();
-        claseValues12.put(ContractClase.Orden.NOMBRE, "Spinulosida");
-        claseValues12.put(ContractClase.Orden.ID, ContractClase.Orden.getID());
-        claseValues12.put(ContractClase.Orden.ID_CLASE, id_);
-        sqLiteDatabase.insert(ContractClase.Orden.TABLA,null,claseValues12);
+        //DATOS CLASE ROTIFERA
+
+        Clase clase7 = new Clase("Rotaroria",division3);
+        sqLiteDatabase.insert(ContractClase.Clase.TABLA, null,clase7.getContentValue());
+
+        //DATOS ORDEN ASTEROIDEA
+
+        Orden orden1 = new Orden("Paxillosida",clase1);
+        sqLiteDatabase.insert(ContractClase.Orden.TABLA, null,orden1.getContentValue());
+
+        Orden orden2 = new Orden("Spinulosida",clase1);
+        sqLiteDatabase.insert(ContractClase.Orden.TABLA, null,clase2.getContentValue());
+
+        //DATOS ORDEN ECHINOIDEA
+
+        Orden orden3 = new Orden("Clypeasteroidea",clase2);
+        sqLiteDatabase.insert(ContractClase.Orden.TABLA, null,orden3.getContentValue());
+
+        Orden orden4 = new Orden("Diadematoida",clase2);
+        sqLiteDatabase.insert(ContractClase.Orden.TABLA, null,orden4.getContentValue());
+
+        //DATOS ORDEN HOLOTHUROIDEA
+
+        Orden orden5 = new Orden("Aspidochirotida",clase3);
+        sqLiteDatabase.insert(ContractClase.Orden.TABLA, null,orden5.getContentValue());
 
 
 
@@ -222,23 +185,42 @@ public class DBhelper extends SQLiteOpenHelper {
 
 
 
-        for (int i = 0; i < 10; i++) {
-            ContentValues claseValuesX = new ContentValues();
-            claseValuesX.put(ContractClase.Orden.NOMBRE, "HH"+String.valueOf(i));
-            claseValuesX.put(ContractClase.Orden.ID, ContractClase.Clase.getID());
-            claseValuesX.put(ContractClase.Orden.ID_CLASE, llave);
-            sqLiteDatabase.insert(ContractClase.Orden.TABLA,null,claseValuesX);
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + ContractClase.Animal.TABLA);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Tablas.DIVISION);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Tablas.CLASE);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + ContractClase.Orden.TABLA);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Tablas.FAMILIA);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Tablas.GENERO);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Tablas.ESPECIE);
 
         this.onCreate(sqLiteDatabase);
     }

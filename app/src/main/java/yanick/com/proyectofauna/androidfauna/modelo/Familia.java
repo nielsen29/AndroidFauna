@@ -1,28 +1,28 @@
 package yanick.com.proyectofauna.androidfauna.modelo;
 
+
 import android.content.ContentValues;
 
 import yanick.com.proyectofauna.androidfauna.modelo.contract.ContractClase;
 
-public class Orden {
+public class Familia {
 
     private int _id;
     private String id;
     private String nombre;
-    private String id_Clase;
-    private Clase clase;
+    private String id_Orden;
+    private Orden orden;
 
-    public Orden() {
-        this.id = ContractClase.Orden.getID();
-    }
 
-    public Orden(String nombre, Clase clase) {
-        this.id = ContractClase.Orden.getID();
+    public Familia(String nombre, Orden orden) {
+        this.id = ContractClase.Familia.getID();
         this.nombre = nombre;
-        this.clase = clase;
+        this.orden = orden;
     }
 
-
+    public Familia() {
+        this.id = ContractClase.Familia.getID();
+    }
 
     public int get_id() {
         return _id;
@@ -49,11 +49,11 @@ public class Orden {
     }
 
     public String getId_Clase() {
-        return id_Clase;
+        return id_Orden;
     }
 
-    public void setId_Clase(String id_Clase) {
-        this.id_Clase = id_Clase;
+    public void setId_Clase(String id_Orden) {
+        this.id_Orden = id_Orden;
     }
 
     @Override
@@ -62,13 +62,13 @@ public class Orden {
     }
 
     public ContentValues getContentValue(){
-        if(this.clase == null){
+        if(this.orden == null){
             return null;
         }
         ContentValues values = new ContentValues();
-        values.put(ContractClase.Orden.ID,this.id);
-        values.put(ContractClase.Orden.NOMBRE,this.nombre);
-        values.put(ContractClase.Orden.ID_CLASE,this.clase.getId());
+        values.put(ContractClase.Familia.ID,this.id);
+        values.put(ContractClase.Familia.NOMBRE,this.nombre);
+        values.put(ContractClase.Familia.ID_ORDEN,this.orden.getId());
         return values;
     }
 }

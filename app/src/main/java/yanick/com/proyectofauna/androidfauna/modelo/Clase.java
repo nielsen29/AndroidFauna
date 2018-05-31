@@ -59,13 +59,14 @@ public class Clase {
     }
 
     public ContentValues getContentValue(){
-        if(this.nombre == null){
+        if(this.division == null){
             return null;
         }
 
         ContentValues values = new ContentValues();
         values.put(ContractClase.Clase.ID,this.id);
         values.put(ContractClase.Clase.NOMBRE,this.nombre);
+        values.put(ContractClase.Clase.ID_DIVISION, this.division.getId());
         return values;
     }
 }
