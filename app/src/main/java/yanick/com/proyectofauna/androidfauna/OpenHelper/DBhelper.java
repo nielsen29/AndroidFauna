@@ -191,6 +191,31 @@ public class DBhelper extends SQLiteOpenHelper {
         claseValues10.put(ContractClase.Clase.ID_DIVISION, id_2);
         sqLiteDatabase.insert(ContractClase.Clase.TABLA,null,claseValues10);
 
+/*
+        ContentValues claseValues4 = new ContentValues();
+        claseValues4.put(ContractClase.Clase.NOMBRE, "Asteroidea");
+        claseValues4.put(ContractClase.Clase.ID, ContractClase.Clase.getID());
+        claseValues4.put(ContractClase.Clase.ID_DIVISION, id_);
+        sqLiteDatabase.insert(ContractClase.Clase.TABLA,null,claseValues4);
+*/
+
+
+
+
+        ContentValues claseValues11 = new ContentValues();
+        claseValues11.put(ContractClase.Orden.NOMBRE, "Paxillosida");
+        claseValues11.put(ContractClase.Orden.ID, ContractClase.Orden.getID());
+        claseValues11.put(ContractClase.Orden.ID_CLASE, id_);
+        sqLiteDatabase.insert(ContractClase.Orden.TABLA,null,claseValues11);
+
+
+        ContentValues claseValues12 = new ContentValues();
+        claseValues12.put(ContractClase.Orden.NOMBRE, "Spinulosida");
+        claseValues12.put(ContractClase.Orden.ID, ContractClase.Orden.getID());
+        claseValues12.put(ContractClase.Orden.ID_CLASE, id_);
+        sqLiteDatabase.insert(ContractClase.Orden.TABLA,null,claseValues12);
+
+
 
 
 

@@ -124,6 +124,7 @@ public class CapturarActivity extends AppCompatActivity {
 
 
                 BuscarClase(((Division) adapterView.getItemAtPosition(i)).getId(),sp_Clase,claseArrayAdapter,daoClase);
+                BuscarOrden(((Clase) adapterView.getItemAtPosition(i)).get_id(),sp_Orden,ordenArrayAdapter,daoOrden);
 
             }
 
@@ -178,9 +179,9 @@ public class CapturarActivity extends AppCompatActivity {
         x.setId_division(((Division) sp_Division.getSelectedItem()).getId());
         x.setId_clase(((Clase) sp_Clase.getSelectedItem()).getId());
         x.setId_orden(((Orden)sp_Orden.getSelectedItem()).getId());
-        x.setId_orden(((Familia)sp_Familia.getSelectedItem()).getId());
-        x.setId_orden(((Genero)sp_Genero.getSelectedItem()).getId());
-        x.setId_orden(((Especie)sp_Especie.getSelectedItem()).getId());
+        x.setId_familia(((Familia)sp_Familia.getSelectedItem()).getId());
+        x.setId_genero(((Genero)sp_Genero.getSelectedItem()).getId());
+        x.setId_especie(((Especie)sp_Especie.getSelectedItem()).getId());
 
 
         String msj = daoAnimal.insertar(ContractClase.Animal.TABLA, x);
@@ -239,6 +240,9 @@ public class CapturarActivity extends AppCompatActivity {
                     switch (_classNombre){
                         case "DAOClase":
                             BuscarClase(((Clase) adapterView.getItemAtPosition(i)).getId(),sp_Orden,ordenArrayAdapter,daoOrden);
+
+                        case "DAOOrden":
+                            BuscarClase(((Orden) adapterView.getItemAtPosition(i)).getId(),sp_Familia,familiaArrayAdapter,daoFamilia);
 
 
                     }
