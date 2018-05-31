@@ -81,6 +81,8 @@ public class CapturarActivity extends AppCompatActivity {
     //h
 
 
+    private ArrayList<Animal> listaAnimales;
+
 
 
 
@@ -103,6 +105,8 @@ public class CapturarActivity extends AppCompatActivity {
 
         listaClase = new ListaClase(this);
         listaDivision = new ListaDivision(this);
+
+        listaAnimales = new ArrayList<>();
 
 
         daoClase = new DAOClase(this);
@@ -133,6 +137,11 @@ public class CapturarActivity extends AppCompatActivity {
 
             }
         });
+
+        listaAnimales.addAll(daoAnimal.mostrar());
+        if(!listaAnimales.isEmpty()){
+            Toast.makeText(getApplicationContext(), "CANTIDAD DE ANIMALES REGISTRADOS = "+String.valueOf(listaAnimales.size()),Toast.LENGTH_LONG).show();
+        }
 
 
 

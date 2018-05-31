@@ -114,13 +114,6 @@ public class DAOAnimal extends OperecionesSQLite<Animal> {
                 respuesta.setId_genero(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.ID_GENERO)));
                 respuesta.setId_especie(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.ID_ESPECIE)));
 
-
-
-
-
-
-
-
                 arrayList.add(respuesta);
             }while (cursor.moveToNext());
 
