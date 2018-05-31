@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.provider.BaseColumns;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,6 +12,7 @@ import java.util.Arrays;
 import yanick.com.proyectofauna.androidfauna.OpenHelper.DBsingleton;
 import yanick.com.proyectofauna.androidfauna.OpenHelper.OperecionesSQLite;
 import yanick.com.proyectofauna.androidfauna.modelo.Animal;
+import yanick.com.proyectofauna.androidfauna.modelo.Clase;
 import yanick.com.proyectofauna.androidfauna.modelo.contract.ContractClase;
 
 public class DAOAnimal extends OperecionesSQLite<Animal> {
@@ -85,6 +87,48 @@ public class DAOAnimal extends OperecionesSQLite<Animal> {
 
     @Override
     public ArrayList<Animal> mostrar() {
-        return null;
+        ArrayList<Animal> arrayList = new ArrayList<>();
+
+        SQLiteDatabase db = dBsingleton.getDATABASE().getReadableDatabase();
+
+        String sql = String.format("Select * from %s ", ContractClase.Animal.TABLA).toString();
+
+        Cursor cursor = db.rawQuery(sql,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                Animal respuesta = new Animal();
+
+                respuesta.set_id(cursor.getInt(cursor.getColumnIndex(BaseColumns._ID)));
+                respuesta.setId(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.ID)));
+                respuesta.setNombre(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.NOMBRE)));
+                respuesta.setDescripcion(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.DESCRIPCION)));
+                respuesta.setLongitud(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.LONGITUD)));
+                respuesta.setLatitud(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.LATITUD)));
+                respuesta.setLongitud(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.LONGITUD)));
+                respuesta.setPais(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.PAIS)));
+                respuesta.setId_division(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.ID_DIVISION)));
+                respuesta.setId_clase(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.ID_CLASE)));
+                respuesta.setId_orden(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.ID_ORDEN)));
+                respuesta.setId_familia(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.ID_FAMILIA)));
+                respuesta.setId_genero(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.ID_GENERO)));
+                respuesta.setId_especie(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.ID_ESPECIE)));
+
+
+
+
+
+
+
+
+                arrayList.add(respuesta);
+            }while (cursor.moveToNext());
+
+            return arrayList;
+        }else{
+            arrayList.clear();
+            return arrayList;
+        }
+
     }
 }
