@@ -239,6 +239,8 @@ public class DBhelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Tablas.CLASE);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + ContractClase.Orden.TABLA);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Tablas.FAMILIA);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Tablas.GENERO);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Tablas.ESPECIE);
 
         this.onCreate(sqLiteDatabase);
     }

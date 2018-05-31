@@ -124,7 +124,7 @@ public class CapturarActivity extends AppCompatActivity {
 
 
                 BuscarClase(((Division) adapterView.getItemAtPosition(i)).getId(),sp_Clase,claseArrayAdapter,daoClase);
-                BuscarOrden(((Clase) adapterView.getItemAtPosition(i)).get_id(),sp_Orden,ordenArrayAdapter,daoOrden);
+
 
             }
 
@@ -243,6 +243,14 @@ public class CapturarActivity extends AppCompatActivity {
 
                         case "DAOOrden":
                             BuscarClase(((Orden) adapterView.getItemAtPosition(i)).getId(),sp_Familia,familiaArrayAdapter,daoFamilia);
+
+                        case "DAOFamilia":
+                            BuscarClase(((Familia) adapterView.getItemAtPosition(i)).getId(),sp_Genero,
+                                    generoArrayAdapter,daoGenero);
+
+                        case "DAOGenero":
+                            BuscarClase(((Genero) adapterView.getItemAtPosition(i)).getId(),sp_Especie,
+                                    especieArrayAdapter,daoEspecie);
 
 
                     }
