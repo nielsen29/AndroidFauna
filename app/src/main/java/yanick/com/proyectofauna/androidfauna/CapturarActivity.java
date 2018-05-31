@@ -240,17 +240,24 @@ public class CapturarActivity extends AppCompatActivity {
                     switch (_classNombre){
                         case "DAOClase":
                             BuscarClase(((Clase) adapterView.getItemAtPosition(i)).getId(),sp_Orden,ordenArrayAdapter,daoOrden);
+                            break;
 
                         case "DAOOrden":
                             BuscarClase(((Orden) adapterView.getItemAtPosition(i)).getId(),sp_Familia,familiaArrayAdapter,daoFamilia);
+                            break;
 
                         case "DAOFamilia":
                             BuscarClase(((Familia) adapterView.getItemAtPosition(i)).getId(),sp_Genero,
                                     generoArrayAdapter,daoGenero);
+                            break;
 
                         case "DAOGenero":
                             BuscarClase(((Genero) adapterView.getItemAtPosition(i)).getId(),sp_Especie,
                                     especieArrayAdapter,daoEspecie);
+                            break;
+
+                        default:
+                            break;
 
 
                     }
