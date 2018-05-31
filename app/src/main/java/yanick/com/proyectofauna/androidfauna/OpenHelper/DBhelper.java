@@ -44,21 +44,46 @@ public class DBhelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
+
+        //TABLA DIVISION
         sqLiteDatabase.execSQL(String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT," +
                         "%s TEXT NOT NULL, %s TEXT NOT NULL)",
                 Tablas.DIVISION, BaseColumns._ID,
                 ContractClase.Division.NOMBRE, ContractClase.Division.ID));
 
+        //TABLA CLASE
         sqLiteDatabase.execSQL(String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT," +
                         "%s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL)",
                 Tablas.CLASE, BaseColumns._ID,
                 ContractClase.Clase.NOMBRE, ContractClase.Clase.ID, ContractClase.Clase.ID_DIVISION));
 
+        //TABLA ORDEN
         sqLiteDatabase.execSQL(String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT," +
                         "%s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL)",
                 ContractClase.Orden.TABLA, BaseColumns._ID,
                 ContractClase.Orden.NOMBRE, ContractClase.Orden.ID, ContractClase.Orden.ID_CLASE));
 
+        //TABLA FAMILIA
+        sqLiteDatabase.execSQL(String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT," +
+        "%s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL)",
+                ContractClase.Familia.TABLA, BaseColumns._ID,
+                ContractClase.Familia.NOMBRE, ContractClase.Familia.ID, ContractClase.Familia.ID_ORDEN));
+
+        //TABLA GENERO
+        sqLiteDatabase.execSQL(String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "%s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL)",
+                ContractClase.Genero.TABLA, BaseColumns._ID,
+                ContractClase.Genero.NOMBRE, ContractClase.Genero.ID, ContractClase.Genero.ID_FAMILIA));
+
+        //TABLA ESPECIE
+        sqLiteDatabase.execSQL(String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "%s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL)",
+                ContractClase.Especie.TABLA, BaseColumns._ID,
+                ContractClase.Especie.NOMBRE, ContractClase.Especie.ID, ContractClase.Especie.ID_GENERO));
+
+
+
+        //TABLA ANIMAL
         sqLiteDatabase.execSQL(String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT," +
 
                         "%s TEXT NOT NULL, "+  // ID
@@ -157,6 +182,7 @@ public class DBhelper extends SQLiteOpenHelper {
         sqLiteDatabase.insert(ContractClase.Clase.TABLA,null,claseValues9);
 
 
+        //DATOS DE CLASE PARA LA TERCERA DIVISION
 
         ContentValues claseValues10 = new ContentValues();
         String llave = ContractClase.Clase.getID();
@@ -187,6 +213,7 @@ public class DBhelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Tablas.DIVISION);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Tablas.CLASE);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + ContractClase.Orden.TABLA);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Tablas.FAMILIA);
 
         this.onCreate(sqLiteDatabase);
     }

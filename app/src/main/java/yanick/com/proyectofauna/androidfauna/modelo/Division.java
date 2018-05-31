@@ -6,6 +6,7 @@ import yanick.com.proyectofauna.androidfauna.modelo.DAOs.DAODivision;
 import yanick.com.proyectofauna.androidfauna.modelo.contract.ContractClase;
 
 public class Division {
+
 private int _id;
 
 private String id;

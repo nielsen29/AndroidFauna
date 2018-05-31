@@ -21,8 +21,14 @@ import yanick.com.proyectofauna.androidfauna.modelo.Animal;
 import yanick.com.proyectofauna.androidfauna.modelo.Clase;
 import yanick.com.proyectofauna.androidfauna.modelo.DAOs.DAOAnimal;
 import yanick.com.proyectofauna.androidfauna.modelo.DAOs.DAOClase;
+import yanick.com.proyectofauna.androidfauna.modelo.DAOs.DAOEspecie;
+import yanick.com.proyectofauna.androidfauna.modelo.DAOs.DAOFamilia;
+import yanick.com.proyectofauna.androidfauna.modelo.DAOs.DAOGenero;
 import yanick.com.proyectofauna.androidfauna.modelo.DAOs.DAOOrden;
 import yanick.com.proyectofauna.androidfauna.modelo.Division;
+import yanick.com.proyectofauna.androidfauna.modelo.Especie;
+import yanick.com.proyectofauna.androidfauna.modelo.Familia;
+import yanick.com.proyectofauna.androidfauna.modelo.Genero;
 import yanick.com.proyectofauna.androidfauna.modelo.Orden;
 import yanick.com.proyectofauna.androidfauna.modelo.contract.ContractClase;
 import yanick.com.proyectofauna.androidfauna.modelo.listas.ListaClase;
@@ -34,10 +40,16 @@ public class CapturarActivity extends AppCompatActivity {
     private Spinner sp_Division;
     private Spinner sp_Clase ;
     private Spinner sp_Orden;
+    private Spinner sp_Familia;
+    private Spinner sp_Genero;
+    private Spinner sp_Especie;
 
     private ArrayAdapter<Division> divisionArrayAdapter;
     private ArrayAdapter<Clase> claseArrayAdapter ;
     private ArrayAdapter<Orden> ordenArrayAdapter;
+    private ArrayAdapter<Familia> familiaArrayAdapter;
+    private ArrayAdapter<Genero> generoArrayAdapter;
+    private ArrayAdapter<Especie> especieArrayAdapter;
 
 
 
@@ -48,7 +60,11 @@ public class CapturarActivity extends AppCompatActivity {
 
     private DAOClase daoClase;
     private DAOOrden daoOrden;
+    private DAOFamilia daoFamilia;
+    private DAOGenero daoGenero;
+    private DAOEspecie daoEspecie;
     private DAOAnimal daoAnimal;
+
 
 
     private Button btn_guardar;
@@ -91,6 +107,9 @@ public class CapturarActivity extends AppCompatActivity {
 
         daoClase = new DAOClase(this);
         daoOrden = new DAOOrden(this);
+        daoFamilia = new DAOFamilia(this);
+        daoGenero = new DAOGenero(this);
+        daoEspecie = new DAOEspecie(this);
         daoAnimal = new DAOAnimal(this);
 
 
@@ -105,6 +124,7 @@ public class CapturarActivity extends AppCompatActivity {
 
 
                 BuscarClase(((Division) adapterView.getItemAtPosition(i)).getId(),sp_Clase,claseArrayAdapter,daoClase);
+
             }
 
             @Override
@@ -126,6 +146,9 @@ public class CapturarActivity extends AppCompatActivity {
         sp_Division = (Spinner) findViewById(R.id.spDiv);
         sp_Clase = (Spinner) findViewById(R.id.spClase);
         sp_Orden = (Spinner) findViewById(R.id.spOrden);
+        sp_Familia = (Spinner) findViewById(R.id.spFamilia);
+        sp_Genero = (Spinner) findViewById(R.id.spGenero);
+        sp_Especie = (Spinner) findViewById(R.id.spEspecie);
 
 
 
@@ -154,6 +177,11 @@ public class CapturarActivity extends AppCompatActivity {
 
         x.setId_division(((Division) sp_Division.getSelectedItem()).getId());
         x.setId_clase(((Clase) sp_Clase.getSelectedItem()).getId());
+        x.setId_orden(((Orden)sp_Orden.getSelectedItem()).getId());
+        x.setId_orden(((Familia)sp_Familia.getSelectedItem()).getId());
+        x.setId_orden(((Genero)sp_Genero.getSelectedItem()).getId());
+        x.setId_orden(((Especie)sp_Especie.getSelectedItem()).getId());
+
 
         String msj = daoAnimal.insertar(ContractClase.Animal.TABLA, x);
         if(!msj.isEmpty()){
@@ -211,6 +239,8 @@ public class CapturarActivity extends AppCompatActivity {
                     switch (_classNombre){
                         case "DAOClase":
                             BuscarClase(((Clase) adapterView.getItemAtPosition(i)).getId(),sp_Orden,ordenArrayAdapter,daoOrden);
+
+
                     }
 
                     //BuscarClase(((T) adapterView.getItemAtPosition(i)).getId(),sp_Clase,claseArrayAdapter,daoClase);

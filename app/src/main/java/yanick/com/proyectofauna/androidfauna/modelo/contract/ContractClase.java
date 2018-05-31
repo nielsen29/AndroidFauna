@@ -6,47 +6,61 @@ import yanick.com.proyectofauna.androidfauna.modelo.Animal;
 
 public class ContractClase {
 
-    interface ColumnasDivision{
+    //CAMPOS TABLA DIVISION
+    interface ColumnasDivision
+    {
         String TABLA = "division";
         String ID = "id";
         String NOMBRE = "nombre";
     }
-    interface ColumnasClase{
+
+    interface ColumnasClase
+    {
         String TABLA = "clase";
         String ID = "id";
         String NOMBRE = "nombre";
         String ID_DIVISION = "id_division";
     }
 
-    interface ColumnasOrden{
+    //CAMPOS TABLA ORDEN
+    interface ColumnasOrden
+    {
         String TABLA = "orden";
         String ID = "id";
         String NOMBRE = "nombre";
         String ID_CLASE = "id_clase";
     }
 
-    interface ColumnasFamilia{
+    //CAMPOS TABLA FAMILIA
+    interface ColumnasFamilia
+    {
         String TABLA = "familia";
         String ID = "id";
         String NOMBRE = "nombre";
-        String ID_CLASE = "id_orden";
+        String ID_ORDEN = "id_orden";
     }
 
-    interface ColumnasGenero{
+    //CAMPOS TABLA GENERO
+    interface ColumnasGenero
+    {
         String TABLA = "genero";
         String ID = "id";
         String NOMBRE = "nombre";
-        String ID_CLASE = "id_familia";
+        String ID_FAMILIA = "id_familia";
     }
 
-    interface ColumnasEspecie{
+    //CAMPOS TABLA ESPECIE
+    interface ColumnasEspecie
+    {
         String TABLA = "especie";
         String ID = "id";
         String NOMBRE = "nombre";
-        String ID_CLASE = "id_genero";
+        String ID_GENERO = "id_genero";
     }
 
-    interface  ColumnasAnimal{
+    //DATOS ANIMAL
+    interface  ColumnasAnimal
+    {
         String TABLA = "animal";
         String ID    = "id";
         String NOMBRE = "nombre";
@@ -54,6 +68,8 @@ public class ContractClase {
         String LONGITUD = "longitud";
         String LATITUD = "latitud";
         String PAIS  = "pais";
+
+        //TAXONOMIA
 
         String ID_DIVISION = "id_division";
         String ID_CLASE = "id_clase";

@@ -7,6 +7,8 @@ import yanick.com.proyectofauna.androidfauna.modelo.contract.ContractClase;
 
 public class Animal {
 
+
+    //VARIABLES ANIMAL
     private int _id;
     private String id;
     private String nombre;
@@ -15,6 +17,7 @@ public class Animal {
     private String latitud;
     private String pais;
 
+    //VARIABLES TAXONOMIA
     private String id_division;
     private String id_clase;
     private String id_orden;
