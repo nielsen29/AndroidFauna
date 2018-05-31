@@ -10,16 +10,19 @@ public class Orden {
     private String id;
     private String nombre;
     private String id_Clase;
-
-
-    public Orden(String nombre) {
-        this.id = ContractClase.Orden.getID();
-        this.nombre = nombre;
-    }
+    private Clase clase;
 
     public Orden() {
         this.id = ContractClase.Orden.getID();
     }
+
+    public Orden(String nombre, Clase clase) {
+        this.id = ContractClase.Orden.getID();
+        this.nombre = nombre;
+        this.clase = clase;
+    }
+
+
 
     public int get_id() {
         return _id;
@@ -59,13 +62,13 @@ public class Orden {
     }
 
     public ContentValues getContentValue(){
-        if(this.nombre == null){
+        if(this.clase == null){
             return null;
         }
         ContentValues values = new ContentValues();
         values.put(ContractClase.Orden.ID,this.id);
         values.put(ContractClase.Orden.NOMBRE,this.nombre);
-        values.put(ContractClase.Orden.ID_CLASE,this.id_Clase);
+        values.put(ContractClase.Orden.ID_CLASE,this.clase.getId());
         return values;
     }
 }

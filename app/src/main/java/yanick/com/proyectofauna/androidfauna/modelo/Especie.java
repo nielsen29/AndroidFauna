@@ -11,11 +11,13 @@ public class Especie {
     private String id;
     private String nombre;
     private String id_Genero;
+    private Especie especie;
 
 
-    public Especie(String nombre) {
+    public Especie(String nombre, Especie especie) {
         this.id = ContractClase.Especie.getID();
         this.nombre = nombre;
+        this.especie = especie;
     }
 
     public Especie() {
@@ -60,13 +62,13 @@ public class Especie {
     }
 
     public ContentValues getContentValue(){
-        if(this.nombre == null){
+        if(this.especie == null){
             return null;
         }
         ContentValues values = new ContentValues();
         values.put(ContractClase.Especie.ID,this.id);
         values.put(ContractClase.Especie.NOMBRE,this.nombre);
-        values.put(ContractClase.Especie.ID_GENERO,this.id_Genero);
+        values.put(ContractClase.Especie.ID_GENERO,this.especie.getId());
         return values;
     }
 

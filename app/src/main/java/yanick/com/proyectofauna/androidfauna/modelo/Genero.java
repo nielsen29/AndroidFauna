@@ -10,11 +10,13 @@ public class Genero {
     private String id;
     private String nombre;
     private String id_Familia;
+    private Familia familia;
 
 
-    public Genero(String nombre) {
+    public Genero(String nombre, Familia familia) {
         this.id = ContractClase.Genero.getID();
         this.nombre = nombre;
+        this.familia = familia;
     }
 
     public Genero() {
@@ -59,13 +61,13 @@ public class Genero {
     }
 
     public ContentValues getContentValue(){
-        if(this.nombre == null){
+        if(this.familia == null){
             return null;
         }
         ContentValues values = new ContentValues();
         values.put(ContractClase.Genero.ID,this.id);
         values.put(ContractClase.Genero.NOMBRE,this.nombre);
-        values.put(ContractClase.Genero.ID_FAMILIA,this.id_Familia);
+        values.put(ContractClase.Genero.ID_FAMILIA,this.familia.getId());
         return values;
     }
 

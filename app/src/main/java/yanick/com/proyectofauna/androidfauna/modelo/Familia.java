@@ -11,11 +11,13 @@ public class Familia {
     private String id;
     private String nombre;
     private String id_Orden;
+    private Orden orden;
 
 
-    public Familia(String nombre) {
+    public Familia(String nombre, Orden orden) {
         this.id = ContractClase.Familia.getID();
         this.nombre = nombre;
+        this.orden = orden;
     }
 
     public Familia() {
@@ -60,13 +62,13 @@ public class Familia {
     }
 
     public ContentValues getContentValue(){
-        if(this.nombre == null){
+        if(this.orden == null){
             return null;
         }
         ContentValues values = new ContentValues();
         values.put(ContractClase.Familia.ID,this.id);
         values.put(ContractClase.Familia.NOMBRE,this.nombre);
-        values.put(ContractClase.Familia.ID_ORDEN,this.id_Orden);
+        values.put(ContractClase.Familia.ID_ORDEN,this.orden.getId());
         return values;
     }
 }
