@@ -91,14 +91,13 @@ public class DAOAnimal extends OperecionesSQLite<Animal> {
 
         SQLiteDatabase db = dBsingleton.getDATABASE().getReadableDatabase();
 
-        String sql = String.format("Select * from %s ", ContractClase.Animal.TABLA).toString();
+        String sql = String.format("Select * from %s ORDER BY _id DESC", ContractClase.Animal.TABLA).toString();
 
         Cursor cursor = db.rawQuery(sql,null);
 
         if(cursor.moveToFirst()){
             do{
                 Animal respuesta = new Animal();
-
                 respuesta.set_id(cursor.getInt(cursor.getColumnIndex(BaseColumns._ID)));
                 respuesta.setId(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.ID)));
                 respuesta.setNombre(cursor.getString(cursor.getColumnIndex(ContractClase.Animal.NOMBRE)));
