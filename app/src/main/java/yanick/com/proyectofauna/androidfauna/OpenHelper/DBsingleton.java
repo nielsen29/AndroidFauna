@@ -1,6 +1,5 @@
 package yanick.com.proyectofauna.androidfauna.OpenHelper;
 
-import android.content.ContentValues;
 import android.content.Context;
 
 public class DBsingleton {
@@ -10,7 +9,7 @@ public class DBsingleton {
 
     public static DBsingleton getInstance(Context context) {
         if(db == null){
-            db = new DBhelper(context);
+            db = new DBhelper(context, "faunadb", null, 1);
         }
         return ourInstance;
     }

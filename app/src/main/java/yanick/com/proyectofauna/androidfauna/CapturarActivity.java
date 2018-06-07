@@ -1,5 +1,19 @@
 package yanick.com.proyectofauna.androidfauna;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.location.Location;
+import android.location.LocationManager;
+import android.media.Image;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,10 +22,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.view.View.OnClickListener;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,6 +52,24 @@ import yanick.com.proyectofauna.androidfauna.modelo.listas.ListaClase;
 import yanick.com.proyectofauna.androidfauna.modelo.listas.ListaDivision;
 
 public class CapturarActivity extends AppCompatActivity {
+
+
+
+    static final int REQUEST_LOCATION = 2;
+    LocationManager locationManager;
+
+    ImageView mImageView;
+
+    final int REQUEST_CODE_GALLERY = 999;
+
+
+    ImageView imgimage;
+    Button btnfoto;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+
+
+
+
 
 
     private Spinner sp_Division;
@@ -92,6 +127,14 @@ public class CapturarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capturar);
 
+
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        getLocation();
+
+
+
+
         cargarOBJvistas();
 
         btn_guardar.setOnClickListener(new View.OnClickListener() {
@@ -138,16 +181,68 @@ public class CapturarActivity extends AppCompatActivity {
             }
         });
 
+        btnfoto = (Button) findViewById(R.id.btnCaptura);
+        imgimage = (ImageView) findViewById(R.id.imagen);
+
+        btnfoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                llamarIntent();
+            }
+        });
+
+
+
+
         listaAnimales.addAll(daoAnimal.mostrar());
         if(!listaAnimales.isEmpty()){
             Toast.makeText(getApplicationContext(), "CANTIDAD DE ANIMALES REGISTRADOS = "+String.valueOf(listaAnimales.size()),Toast.LENGTH_LONG).show();
         }
 
-
-
-
-
     }
+
+    private void llamarIntent()
+    {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+
+
+
+    void getLocation(){
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
+                PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+        } else {
+            Location location = locationManager.getLastKnownLocation(locationManager.NETWORK_PROVIDER);
+            if (location != null){
+                double latitud = location.getLatitude();
+                double longitud = location.getLongitude();
+
+                ((EditText)findViewById(R.id.edtLat)).setText(" " + latitud);
+                ((EditText)findViewById(R.id.edtLon)).setText(" " + longitud);
+            } else {
+                ((EditText)findViewById(R.id.edtLat)).setText("Unable to find correct location.");
+                ((EditText)findViewById(R.id.edtLon)).setText("Unable to find correct location. ");
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        switch (requestCode) {
+            case REQUEST_LOCATION:
+                getLocation();
+                break;
+        }
+    }
+
 
 
 
@@ -191,6 +286,10 @@ public class CapturarActivity extends AppCompatActivity {
         x.setId_familia(((Familia)sp_Familia.getSelectedItem()).getId());
         x.setId_genero(((Genero)sp_Genero.getSelectedItem()).getId());
         x.setId_especie(((Especie)sp_Especie.getSelectedItem()).getId());
+
+
+
+
 
 
         String msj = daoAnimal.insertar(ContractClase.Animal.TABLA, x);
@@ -287,4 +386,12 @@ public class CapturarActivity extends AppCompatActivity {
 
 
     }
-}
+
+
+
+
+
+    }
+
+
+

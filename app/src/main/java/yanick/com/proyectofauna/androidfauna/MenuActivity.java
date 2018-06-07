@@ -22,7 +22,7 @@ public class MenuActivity extends AppCompatActivity {
         BOTONCONSULTAR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Listar = new Intent(MenuActivity.this,ConsultarActivity.class);
+                Intent Listar = new Intent(MenuActivity.this,CapturarActivity.class);
                 startActivity(Listar);
             }
         });
@@ -30,7 +30,7 @@ public class MenuActivity extends AppCompatActivity {
         BOTONCAPTURAR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Buscar = new Intent(MenuActivity.this, CapturarActivity.class);
+                Intent Buscar = new Intent(MenuActivity.this, ConsultarActivity.class);
                 startActivity(Buscar);
             }
         });

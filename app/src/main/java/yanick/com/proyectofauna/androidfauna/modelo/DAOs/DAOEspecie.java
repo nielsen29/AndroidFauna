@@ -46,7 +46,7 @@ public class DAOEspecie extends OperecionesSQLite <Especie> {
 
         SQLiteDatabase db = dBsingleton.getDATABASE().getReadableDatabase();
 
-        String sql = String.format("Select * from %s where "+ ContractClase.Especie.ID_GENERO +" = '%s'", ContractClase.Genero.TABLA, id).toString();
+        String sql = String.format("Select * from %s where "+ ContractClase.Especie.ID_GENERO +" = '%s'", ContractClase.Especie.TABLA, id).toString();
 
         Cursor cursor = db.rawQuery(sql,null);
 

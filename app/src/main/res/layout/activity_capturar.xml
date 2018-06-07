@@ -10,331 +10,340 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="210dp"
-        android:background="@color/colorPrimaryDark"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
-
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageView"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:background="@drawable/circulo"
-            android:src="@drawable/addphoto"
-            android:layout_centerHorizontal="true"
-            android:elevation="1dp"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="210dp"
+            android:background="@color/colorPrimaryDark"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="85dp"
-            app:contentPadding="15dp"
-            app:contentPaddingRight="15dp"
-            android:paddingLeft="15dp"
-            app:contentPaddingBottom="15dp"
-            app:cardCornerRadius="10dp">
-
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="30dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Registro de Animales"
-                    android:textStyle="bold"
-                    android:textSize="25sp"
-                    android:layout_marginTop="60dp"
-                    android:layout_gravity="center_horizontal"/>
 
-                <RelativeLayout
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imagen"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/circulo"
+                    android:elevation="1dp"
+                    android:src="@drawable/addphoto" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="10dp">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/edtAnimal"
-                        android:layout_width="wrap_content"
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:ems="10"
-                        android:hint="ANIMAL" />
+                        android:layout_marginTop="85dp"
+                        app:contentPadding="15dp"
+                        app:contentPaddingRight="15dp"
+                        android:paddingLeft="15dp"
+                        app:contentPaddingBottom="15dp"
+                        app:cardCornerRadius="10dp">
 
-                    <EditText
-                        android:id="@+id/edtDescrip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/edtAnimal"
-                        android:layout_centerHorizontal="true"
-                        android:ems="10"
-                        android:hint="DESCRIPCION" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/edtLat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/edtDescrip"
-                        android:layout_centerHorizontal="true"
-                        android:ems="10"
-                        android:hint="LATITUD" />
+                            <Button
+                                android:id="@+id/btnCaptura"
+                                android:layout_width="120dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="85dp"
+                                android:layout_marginTop="80dp"
+                                android:background="@drawable/boton_redondo"
+                                android:text="Tomar Foto"
+                                android:textColor="#fff" />
 
-                    <EditText
-                        android:id="@+id/edtLon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/edtLat"
-                        android:layout_centerHorizontal="true"
-                        android:ems="10"
-                        android:hint="LONGITUD" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Registro de Animales"
+                                android:textStyle="bold"
+                                android:textSize="25sp"
+                                android:layout_marginTop="40dp"
+                                android:layout_gravity="center_horizontal"/>
 
-                    <EditText
-                        android:id="@+id/edtPais"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/edtLon"
-                        android:layout_centerHorizontal="true"
-                        android:ems="10"
-                        android:hint="PAIS" />
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="10dp">
 
-                    <TextView
-                        android:id="@+id/TituloTaxonomia"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/edtPais"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="25dp"
-                        android:background="#17A589"
-                        android:ems="10"
-                        android:paddingLeft="35dp"
-                        android:text="DATOS TAXONOMIA"
-                        android:textSize="20dp" />
+                                <EditText
+                                    android:id="@+id/edtAnimal"
+                                    android:layout_width="240dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:ems="10"
+                                    android:hint="ANIMAL" />
 
+                                <EditText
+                                    android:id="@+id/edtDescrip"
+                                    android:layout_width="240dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/edtAnimal"
+                                    android:layout_centerHorizontal="true"
+                                    android:ems="10"
+                                    android:hint="DESCRIPCION" />
 
-                    <TextView
-                        android:id="@+id/seleccioneDominio"
-                        android:layout_width="80dp"
-                        android:layout_height="35dp"
-                        android:background="#17A589"
-                        android:layout_below="@id/TituloTaxonomia"
-                        android:layout_marginLeft="18dp"
-                        android:layout_marginTop="25dp"
-                        android:text=" DOMINIO:"
-                        android:textSize="15dp" />
+                                <EditText
+                                    android:id="@+id/edtLat"
+                                    android:layout_width="240dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/edtDescrip"
+                                    android:layout_centerHorizontal="true"
+                                    android:ems="10"
+                                    android:hint="" />
 
+                                <EditText
+                                    android:id="@+id/edtLon"
+                                    android:layout_width="240dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/edtLat"
+                                    android:layout_centerHorizontal="true"
+                                    android:ems="10"
+                                    android:hint="" />
 
-                    <Spinner
-                        android:id="@+id/spDominio"
-                        android:layout_width="150dp"
-                        android:layout_height="48dp"
-                        android:layout_above="@+id/spReino"
-                        android:layout_alignEnd="@+id/TituloTaxonomia"
-                        android:layout_alignRight="@+id/TituloTaxonomia"
-                        android:entries="@array/Array_Dominios"></Spinner>
+                                <EditText
+                                    android:id="@+id/edtPais"
+                                    android:layout_width="240dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/edtLon"
+                                    android:layout_centerHorizontal="true"
+                                    android:ems="10"
+                                    android:hint="PAIS" />
 
-
-                    <TextView
-                        android:id="@+id/seleccioneReino"
-                        android:layout_width="80dp"
-                        android:layout_height="35dp"
-                        android:background="#17A589"
-                        android:layout_below="@id/seleccioneDominio"
-                        android:layout_marginLeft="18dp"
-                        android:layout_marginTop="25dp"
-                        android:text="REINO:"
-                        android:textSize="15dp"/>
-
-                    <Spinner
-                        android:id="@+id/spReino"
-                        android:layout_width="150dp"
-                        android:layout_height="30dp"
-                        android:entries="@array/Array_Reino"
-                        android:layout_below="@+id/seleccioneDominio"
-                        android:layout_marginTop="25dp"
-                        android:layout_alignLeft="@+id/spDominio"
-                        android:layout_alignStart="@+id/spDominio"></Spinner>
-
-                    <TextView
-                        android:id="@+id/seleccioneDivision"
-                        android:layout_width="80dp"
-                        android:layout_height="30dp"
-                        android:layout_below="@id/seleccioneReino"
-                        android:layout_marginLeft="18dp"
-                        android:layout_marginTop="25dp"
-                        android:background="#17A589"
-                        android:text="DIVISION:"
-                        android:textSize="15dp"/>
+                                <TextView
+                                    android:id="@+id/TituloTaxonomia"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/edtPais"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="25dp"
+                                    android:background="#17A589"
+                                    android:ems="10"
+                                    android:paddingLeft="35dp"
+                                    android:text="DATOS TAXONOMIA"
+                                    android:textSize="20dp" />
 
 
-                    <Spinner
-                        android:id="@+id/spDiv"
-                        android:layout_width="150dp"
-                        android:layout_height="30dp"
-                        android:entries="@array/Array_division"
-                        android:layout_below="@+id/seleccioneReino"
-                        android:layout_marginTop="25dp"
-                        android:layout_alignLeft="@+id/spDominio"
-                        android:layout_alignStart="@+id/spDominio"></Spinner>
+                                <TextView
+                                    android:id="@+id/seleccioneDominio"
+                                    android:layout_width="80dp"
+                                    android:layout_height="35dp"
+                                    android:background="#17A589"
+                                    android:layout_below="@id/TituloTaxonomia"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginTop="25dp"
+                                    android:text=" DOMINIO:"
+                                    android:textSize="15dp" />
 
 
-                    <TextView
-                        android:id="@+id/seleccioneClase"
-                        android:layout_width="80dp"
-                        android:layout_height="30dp"
-                        android:background="#17A589"
-                        android:layout_below="@id/seleccioneDivision"
-                        android:layout_marginLeft="18dp"
-                        android:layout_marginTop="25dp"
-                        android:text="ClASE:"
-                        android:textSize="15dp"/>
+                                <Spinner
+                                    android:id="@+id/spDominio"
+                                    android:layout_width="150dp"
+                                    android:layout_height="48dp"
+                                    android:layout_above="@+id/spReino"
+                                    android:layout_alignEnd="@+id/TituloTaxonomia"
+                                    android:layout_alignRight="@+id/TituloTaxonomia"
+                                    android:entries="@array/Array_Dominios"></Spinner>
 
 
-                    <Spinner
-                        android:id="@+id/spClase"
-                        android:layout_width="150dp"
-                        android:layout_height="30dp"
-                        android:entries="@array/Array_Clase"
-                        android:layout_below="@+id/seleccioneDivision"
-                        android:layout_marginTop="25dp"
-                        android:layout_alignLeft="@+id/spDominio"
-                        android:layout_alignStart="@+id/spDominio"></Spinner>
+                                <TextView
+                                    android:id="@+id/seleccioneReino"
+                                    android:layout_width="80dp"
+                                    android:layout_height="35dp"
+                                    android:background="#17A589"
+                                    android:layout_below="@id/seleccioneDominio"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginTop="25dp"
+                                    android:text="REINO:"
+                                    android:textSize="15dp"/>
+
+                                <Spinner
+                                    android:id="@+id/spReino"
+                                    android:layout_width="150dp"
+                                    android:layout_height="30dp"
+                                    android:entries="@array/Array_Reino"
+                                    android:layout_below="@+id/seleccioneDominio"
+                                    android:layout_marginTop="25dp"
+                                    android:layout_alignLeft="@+id/spDominio"
+                                    android:layout_alignStart="@+id/spDominio"></Spinner>
+
+                                <TextView
+                                    android:id="@+id/seleccioneDivision"
+                                    android:layout_width="80dp"
+                                    android:layout_height="30dp"
+                                    android:layout_below="@id/seleccioneReino"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginTop="25dp"
+                                    android:background="#17A589"
+                                    android:text="DIVISION:"
+                                    android:textSize="15dp"/>
 
 
-                    <TextView
-                        android:id="@+id/seleccioneOrden"
-                        android:layout_width="80dp"
-                        android:layout_height="35dp"
-                        android:background="#17A589"
-                        android:layout_below="@id/seleccioneClase"
-                        android:layout_marginLeft="18dp"
-                        android:layout_marginTop="25dp"
-                        android:text="ORDEN:"
-                        android:textSize="15dp"/>
-
-                    <Spinner
-                        android:id="@+id/spOrden"
-                        android:layout_width="150dp"
-                        android:layout_height="30dp"
-                        android:entries="@array/Array_Orden"
-                        android:layout_below="@+id/seleccioneClase"
-                        android:layout_marginTop="25dp"
-                        android:layout_alignLeft="@+id/spDominio"
-                        android:layout_alignStart="@+id/spDominio"></Spinner>
+                                <Spinner
+                                    android:id="@+id/spDiv"
+                                    android:layout_width="150dp"
+                                    android:layout_height="30dp"
+                                    android:entries="@array/Array_division"
+                                    android:layout_below="@+id/seleccioneReino"
+                                    android:layout_marginTop="25dp"
+                                    android:layout_alignLeft="@+id/spDominio"
+                                    android:layout_alignStart="@+id/spDominio"></Spinner>
 
 
-                    <TextView
-                        android:id="@+id/seleccioneFamilia"
-                        android:layout_width="80dp"
-                        android:background="#17A589"
-                        android:layout_height="35dp"
-                        android:layout_below="@id/seleccioneOrden"
-                        android:layout_marginLeft="18dp"
-                        android:layout_marginTop="25dp"
-                        android:text="FAMILIA:"
-                        android:textSize="15dp"/>
-
-                    <Spinner
-                        android:id="@+id/spFamilia"
-                        android:layout_width="150dp"
-                        android:layout_height="30dp"
-                        android:entries="@array/Array_Familia"
-                        android:layout_below="@+id/seleccioneOrden"
-                        android:layout_marginTop="25dp"
-                        android:layout_alignLeft="@+id/spDominio"
-                        android:layout_alignStart="@+id/spDominio"></Spinner>
+                                <TextView
+                                    android:id="@+id/seleccioneClase"
+                                    android:layout_width="80dp"
+                                    android:layout_height="30dp"
+                                    android:background="#17A589"
+                                    android:layout_below="@id/seleccioneDivision"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginTop="25dp"
+                                    android:text="ClASE:"
+                                    android:textSize="15dp"/>
 
 
-                    <TextView
-                        android:id="@+id/seleccioneGenero"
-                        android:layout_width="80dp"
-                        android:background="#17A589"
-                        android:layout_height="35dp"
-                        android:layout_below="@id/seleccioneFamilia"
-                        android:layout_marginLeft="18dp"
-                        android:layout_marginTop="25dp"
-                        android:text="GENERO:"
-                        android:textSize="15dp"/>
-
-                    <Spinner
-                        android:id="@+id/spGenero"
-                        android:layout_width="150dp"
-                        android:layout_height="30dp"
-                        android:entries="@array/Array_Genero"
-                        android:layout_below="@+id/seleccioneFamilia"
-                        android:layout_marginTop="25dp"
-                        android:layout_alignLeft="@+id/spDominio"
-                        android:layout_alignStart="@+id/spDominio"></Spinner>
+                                <Spinner
+                                    android:id="@+id/spClase"
+                                    android:layout_width="150dp"
+                                    android:layout_height="30dp"
+                                    android:entries="@array/Array_Clase"
+                                    android:layout_below="@+id/seleccioneDivision"
+                                    android:layout_marginTop="25dp"
+                                    android:layout_alignLeft="@+id/spDominio"
+                                    android:layout_alignStart="@+id/spDominio"></Spinner>
 
 
-                    <TextView
-                        android:id="@+id/seleccioneEspecie"
-                        android:layout_width="80dp"
-                        android:layout_height="35dp"
-                        android:background="#17A589"
-                        android:layout_below="@id/seleccioneGenero"
-                        android:layout_marginLeft="18dp"
-                        android:layout_marginTop="25dp"
-                        android:text="ESPECIE:"
-                        android:textSize="15dp"/>
+                                <TextView
+                                    android:id="@+id/seleccioneOrden"
+                                    android:layout_width="80dp"
+                                    android:layout_height="35dp"
+                                    android:background="#17A589"
+                                    android:layout_below="@id/seleccioneClase"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginTop="25dp"
+                                    android:text="ORDEN:"
+                                    android:textSize="15dp"/>
 
-                    <Spinner
-                        android:id="@+id/spEspecie"
-                        android:layout_width="150dp"
-                        android:layout_height="30dp"
-                        android:entries="@array/Array_Especie"
-                        android:layout_below="@+id/seleccioneGenero"
-                        android:layout_marginTop="25dp"
-                        android:layout_alignLeft="@+id/spDominio"
-                        android:layout_alignStart="@+id/spDominio"></Spinner>
-
-
-                    <Button
-                        android:id="@+id/btnAgregar"
-                        android:layout_below="@id/seleccioneEspecie"
-                        android:layout_marginTop="25dp"
-                        android:layout_centerHorizontal="true"
-                        android:minWidth="160dp"
-                        android:text="GUARDAR"
-                        style="@style/Base.Widget.AppCompat.Button.Colored"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                                <Spinner
+                                    android:id="@+id/spOrden"
+                                    android:layout_width="150dp"
+                                    android:layout_height="30dp"
+                                    android:entries="@array/Array_Orden"
+                                    android:layout_below="@+id/seleccioneClase"
+                                    android:layout_marginTop="25dp"
+                                    android:layout_alignLeft="@+id/spDominio"
+                                    android:layout_alignStart="@+id/spDominio"></Spinner>
 
 
-                </RelativeLayout>
+                                <TextView
+                                    android:id="@+id/seleccioneFamilia"
+                                    android:layout_width="80dp"
+                                    android:background="#17A589"
+                                    android:layout_height="35dp"
+                                    android:layout_below="@id/seleccioneOrden"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginTop="25dp"
+                                    android:text="FAMILIA:"
+                                    android:textSize="15dp"/>
+
+                                <Spinner
+                                    android:id="@+id/spFamilia"
+                                    android:layout_width="150dp"
+                                    android:layout_height="30dp"
+                                    android:entries="@array/Array_Familia"
+                                    android:layout_below="@+id/seleccioneOrden"
+                                    android:layout_marginTop="25dp"
+                                    android:layout_alignLeft="@+id/spDominio"
+                                    android:layout_alignStart="@+id/spDominio"></Spinner>
+
+
+                                <TextView
+                                    android:id="@+id/seleccioneGenero"
+                                    android:layout_width="80dp"
+                                    android:background="#17A589"
+                                    android:layout_height="35dp"
+                                    android:layout_below="@id/seleccioneFamilia"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginTop="25dp"
+                                    android:text="GENERO:"
+                                    android:textSize="15dp"/>
+
+                                <Spinner
+                                    android:id="@+id/spGenero"
+                                    android:layout_width="150dp"
+                                    android:layout_height="30dp"
+                                    android:entries="@array/Array_Genero"
+                                    android:layout_below="@+id/seleccioneFamilia"
+                                    android:layout_marginTop="25dp"
+                                    android:layout_alignLeft="@+id/spDominio"
+                                    android:layout_alignStart="@+id/spDominio"></Spinner>
+
+
+                                <TextView
+                                    android:id="@+id/seleccioneEspecie"
+                                    android:layout_width="80dp"
+                                    android:layout_height="35dp"
+                                    android:background="#17A589"
+                                    android:layout_below="@id/seleccioneGenero"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginTop="25dp"
+                                    android:text="ESPECIE:"
+                                    android:textSize="15dp"/>
+
+                                <Spinner
+                                    android:id="@+id/spEspecie"
+                                    android:layout_width="150dp"
+                                    android:layout_height="30dp"
+                                    android:entries="@array/Array_Especie"
+                                    android:layout_below="@+id/seleccioneGenero"
+                                    android:layout_marginTop="25dp"
+                                    android:layout_alignLeft="@+id/spDominio"
+                                    android:layout_alignStart="@+id/spDominio"></Spinner>
+
+
+                                <Button
+                                    android:id="@+id/btnAgregar"
+                                    android:layout_below="@id/seleccioneEspecie"
+                                    android:layout_marginTop="25dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:minWidth="160dp"
+                                    android:text="GUARDAR"
+                                    style="@style/Base.Widget.AppCompat.Button.Colored"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+
+                            </RelativeLayout>
 
 
 
-            </LinearLayout>
+                        </LinearLayout>
 
 
 
-        </android.support.v7.widget.CardView>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
 
         </LinearLayout>
-
-
-    </RelativeLayout>
-
-    </LinearLayout>
 
     </RelativeLayout>
 

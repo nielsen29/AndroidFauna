@@ -47,7 +47,7 @@ public class DAOGenero extends OperecionesSQLite <Genero> {
 
         SQLiteDatabase db = dBsingleton.getDATABASE().getReadableDatabase();
 
-        String sql = String.format("Select * from %s where "+ ContractClase.Genero.ID_FAMILIA +" = '%s'", ContractClase.Familia.TABLA, id).toString();
+        String sql = String.format("Select * from %s where "+ ContractClase.Genero.ID_FAMILIA +" = '%s'", ContractClase.Genero.TABLA, id).toString();
 
         Cursor cursor = db.rawQuery(sql,null);
 
